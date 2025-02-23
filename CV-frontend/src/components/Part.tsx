@@ -10,16 +10,16 @@ const Part = (props: PartProps) => {
             return (
                 <div>
                     <div>{part.name}</div>
-                    <div>Date of birth: {part.birth_date}</div>
-                    <div>address: {part.address}, {part.postal_code}, {part.city}</div>
-                    <div>Email: {part.email}</div>
-                    <div>Phone Number: {part.phonenr}</div>
+                    <div>{part.birth_date}</div>
+                    <div>{part.address}, {part.postal_code}, {part.city}</div>
+                    <div>{part.email}</div>
+                    <div>{part.phonenr}</div>
                 </div>
             );
         case 'language':
             return (
                 <div>
-                    {part.name}: {part.fluency}
+                    {part.fluency}
                 </div>
             )
         default:

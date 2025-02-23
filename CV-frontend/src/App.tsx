@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@mui/material'
 
 import { CvPart } from "./types";
-import CvContent from "./components/CvContent";
+import LanguageData from "./components/LanguageData";
 import PersonalData from "./components/PersonalData";
 
 const cvPersonal: CvPart[] = [
@@ -48,7 +48,7 @@ const App = () => {
 
 
         <div><PersonalData cvParts={cvPersonal} /></div>
-        <div><CvContent cvParts={cvLanguage} /></div>
+        <div><LanguageData cvParts={cvLanguage} /></div>
       </div>
     </Container>
   )
