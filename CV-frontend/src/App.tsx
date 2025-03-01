@@ -1,22 +1,14 @@
-import React from 'react'
-import { Container } from '@mui/material'
+import React from 'react';
+import axios from 'axios';
+
+import { useState, useEffect } from 'react';
+import { Container } from '@mui/material';
 
 import { CvPart } from "./types";
 import LanguageData from "./components/LanguageData";
 import PersonalData from "./components/PersonalData";
 
-const cvPersonal: CvPart[] = [
-  {
-    name: 'Roy Voorbach',
-    birth_date: '04-05-1993',
-    address: 'Bosland 6',
-    postal_code: '3751 KD',
-    city: 'Bunschoten',
-    email: 'royvb@hotmail.com',
-    phonenr: '+ 31 6 30961259',
-    kind: 'personal'
-  }
-];
+
 
 const cvLanguage: CvPart[] = [
   {
@@ -40,6 +32,15 @@ const cvLanguage: CvPart[] = [
 const App = () => {
   const title = 'CV';
 
+  const [personalia, setPersonalia] = useState<CvPart[]>([]);
+
+  useEffect(() => {
+    axios.get<CvPart[]>('http://localhost:3000/api/personalia').then(response => {
+      console.log(response.data);
+      setPersonalia(response.data);
+    })
+  }, [])
+
 
   return (
     <Container>
@@ -47,7 +48,7 @@ const App = () => {
         <h1>{title}</h1>
 
 
-        <div><PersonalData cvParts={cvPersonal} /></div>
+        <div><PersonalData cvParts={personalia} /></div>
         <div><LanguageData cvParts={cvLanguage} /></div>
       </div>
     </Container>
@@ -94,5 +95,17 @@ const cvParts: CvPart[] = [
     </Container>
   )
 
+  const cvPersonal: CvPart[] = [
+  {
+    name: 'Roy Voorbach',
+    birth_date: '04-05-1993',
+    address: 'Bosland 6',
+    postal_code: '3751 KD',
+    city: 'Bunschoten',
+    email: 'royvb@hotmail.com',
+    phonenr: '+ 31 6 30961259',
+    kind: 'personal'
+  }
+];
 
 */
