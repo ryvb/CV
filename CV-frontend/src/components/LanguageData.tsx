@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 
+import { getAllLanguages } from '../services/languageService';
 import Part from './Part';
-import { CvProps } from "../types";
+import { CvPart } from "../types";
 
 import {
     Table,
@@ -13,8 +15,15 @@ import {
     TableHead,
   } from '@mui/material'
 
-const LanguageData = (props: CvProps) => {
-    const { cvParts } = props;
+const LanguageData = () => {
+    const [languages, setLanguages] = useState<CvPart[]>([]);
+
+    useEffect(() => {
+        getAllLanguages().then(data => {
+            setLanguages(data)
+        })
+    }, [])
+
     return (
         <div>
             <TableContainer component={Paper}/>
@@ -25,7 +34,7 @@ const LanguageData = (props: CvProps) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                            {cvParts.map((part, index) => (
+                            {languages.map((part, index) => (
                                 <TableRow key={index}>
                                     <TableCell>
                                         {part.name}

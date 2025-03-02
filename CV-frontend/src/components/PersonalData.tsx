@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react';
 
+import { getAllPersonalia } from '../services/personaliaService';
 import Part from './Part';
-import { CvProps } from "../types";
+import { CvPart } from "../types";
+
 
 import {
     Table,
@@ -13,9 +16,18 @@ import {
     TableHead,
   } from '@mui/material'
 
-const PersonalData = (props: CvProps) => {
-    const { cvParts } = props;
+const PersonalData = () => {
+    const [personalia, setPersonalia] = useState<CvPart[]>([]);
+
+    useEffect(() => {
+        getAllPersonalia().then(data => {
+            setPersonalia(data)
+        })
+    }, [])
+
+
     return (
+        
         <div>
             <TableContainer component={Paper}/>
                 <Table>
@@ -25,7 +37,7 @@ const PersonalData = (props: CvProps) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {cvParts.map((part, index) => (
+                        {personalia.map((part, index) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <div>Naam: </div>
