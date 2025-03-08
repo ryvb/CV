@@ -16,10 +16,10 @@ const Part = (props: PartProps) => {
                     <div>{part.phonenr}</div>
                 </div>
             );
-        case 'language':
+        case 'basic':
             return (
                 <div>
-                    {part.fluency}
+                    {part.description}
                 </div>
             )
         default:

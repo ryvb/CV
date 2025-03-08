@@ -3,18 +3,18 @@ import { CvPart } from "../src/types";
 const languageEntries: CvPart[] = [
     {
       "name": "Nederlands",
-      "fluency": "Moedertaal",
-      "kind": "language"
+      "description": "Moedertaal",
+      "kind": "basic"
     },
     {
       "name": "Engels",
-      "fluency": "Vloeiend",
-      "kind": "language"
+      "description": "Vloeiend",
+      "kind": "basic"
     },
     {
       "name": "Thai",
-      "fluency": "Basis",
-      "kind": "language"
+      "description": "Basis",
+      "kind": "basic"
     }
 ];
 

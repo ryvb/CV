@@ -2,6 +2,11 @@ interface CvPartBase {
     name: string;
 }
 
+interface CvPartBasic extends CvPartBase {
+    description: string;
+    kind: 'basic';
+}
+
 interface CvPartPersonal extends CvPartBase {
     birth_date: string;
     address: string;
@@ -12,11 +17,17 @@ interface CvPartPersonal extends CvPartBase {
     kind: 'personal';
 }
 
-interface CvPartLanguage extends CvPartBase {
-    fluency: string;
-    kind: 'language';
+interface CvPartExperience extends CvPartBase {
+    start_date: string;
+    end_date: string;
+    institution: string;
+    city: string;
+    description: string[];
+    kind: 'experience';
 }
 
 export type CvPart = 
     | CvPartPersonal
-    | CvPartLanguage;
+    | CvPartBasic
+    | CvPartExperience;
+

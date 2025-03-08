@@ -1,6 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 
+import certificateRouter from './routes/certificates';
+import educationRouter from './routes/education';
+import hobbiesRouter from './routes/hobbies';
+import skillsRouter from './routes/skills';
+import workRouter from './routes/work';
 
 import personaliaRouter from './routes/personalia';
 import languagesRouter from './routes/languages';
@@ -26,6 +31,11 @@ app.get('/ping', (_req, res) => {
     res.send('pong');
 });
 
+app.use('/api/certificates', certificateRouter);
+app.use('/api/education', educationRouter);
+app.use('/api/hobbies', hobbiesRouter);
+app.use('/api/skills', skillsRouter);
+app.use('/api/work', workRouter);
 app.use('/api/personalia', personaliaRouter);
 app.use('/api/languages', languagesRouter);
 
