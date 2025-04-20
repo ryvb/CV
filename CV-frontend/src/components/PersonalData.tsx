@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import { getAllPersonalia } from '../services/personaliaService';
 import Part from './Part';
 import { CvPart } from "../types";
-
-
 import {
     Table,
     TableBody,
@@ -15,6 +13,10 @@ import {
     Paper,
     TableHead,
   } from '@mui/material'
+
+import Box from "@mui/material/Box";
+
+
 
 const PersonalData = () => {
     const [personalia, setPersonalia] = useState<CvPart[]>([]);
@@ -27,8 +29,7 @@ const PersonalData = () => {
 
 
     return (
-        
-        <div>
+        <Box>
             <TableContainer component={Paper}/>
                 <Table>
                     <TableHead>
@@ -54,13 +55,18 @@ const PersonalData = () => {
                     </TableBody>
                 </Table>
             <TableContainer/>
-        </div>
+        </Box>
+
     )
 }
 
 export default PersonalData;
 
 /*
+
+<CvCard props={personalia}></CvCard>
+
+
 
 
 */

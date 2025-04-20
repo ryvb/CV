@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Container } from '@mui/material';
 
-import LanguageData from "./components/LanguageData";
-import PersonalData from "./components/PersonalData";
+import LeftColumn from './components/LeftColumn';
+import RightColumn from './components/RightColumn';
 
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid2';
 
 
 const App = () => {
@@ -12,20 +14,17 @@ const App = () => {
 
   return (
     <Container>
-      <div>
+      <Box>
         <h1>{title}</h1>
 
+        <Grid container spacing={10}>
+          <LeftColumn />
+          <RightColumn />
+        </Grid>
 
-        <div><PersonalData /></div>
-        <div><LanguageData /></div>
-      </div>
+      </Box>
     </Container>
   )
 }
 
 export default App
-
-/*
-
-
-*/
