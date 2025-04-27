@@ -13,6 +13,7 @@ import {
     TableRow,
     Paper,
     TableHead,
+    tableCellClasses
   } from '@mui/material'
 
 const WorkData = () => {
@@ -27,22 +28,21 @@ const WorkData = () => {
     return (
         <div>
             <TableContainer component={Paper}/>
-                <Table>
+                <Table
+                    sx={{
+                        [`& .${tableCellClasses.root}`]: {
+                            borderBottom: 'none',
+                            py: 1
+                        }
+                    }}>
                     <TableHead>
-                        <TableRow>
+                        <TableRow sx={{ borderBottom: 1, borderColor: 'grey.400'}}>
                             <TableCell align="left" colSpan={2}><b>Werkervaring</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                             {work.map((part, index) => (
-                                <TableRow key={index}>
-                                    <TableCell>
-                                        {part.name}
-                                    </TableCell>
-                                    <TableCell>
-                                        <Part key={index} part={part} />                        
-                                    </TableCell>
-                                </TableRow>
+                                <Part key={index} part={part} />                        
                             ))}
                     </TableBody>
                 </Table>

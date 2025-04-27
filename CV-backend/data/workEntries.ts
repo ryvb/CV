@@ -2,6 +2,15 @@ import { CvPart } from "../src/types";
 
 const workEntries: CvPart[] = [
     {
+        "name": "Financial Controller",
+        "start_date": "Feb 2025",
+        "end_date": "Heden",
+        "institution": "Total Specific Solutions",
+        "city": "Utrecht",
+        "description": ["x", "y", "z"],
+        "kind": 'experience'
+    },
+    {
         "name": "Billing Specialist a.i.",
         "start_date": "Jul 2024",
         "end_date": "Feb 2025",

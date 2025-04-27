@@ -1,11 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-
-import { getAllEducation } from '../services/educationService';
-import Part from './Part';
-import { CvPart } from "../types";
 
 import Box from '@mui/material/Box';
+
 
 import {
     Table,
@@ -18,15 +14,7 @@ import {
     tableCellClasses
   } from '@mui/material'
 
-const EducationData = () => {
-    const [education, setEducation] = useState<CvPart[]>([]);
-
-    useEffect(() => {
-        getAllEducation().then(data => {
-            setEducation(data)
-        })
-    }, [])
-
+const SocialMedia = () => {
     return (
         <Box>
             <TableContainer component={Paper}/>
@@ -39,23 +27,22 @@ const EducationData = () => {
                 }}>
                     <TableHead>
                         <TableRow sx={{ borderBottom: 1, borderColor: 'grey.500'}}>
-                            <TableCell align="left" colSpan={2}><b>Opleidingen</b></TableCell>
+                            <TableCell align="left" colSpan={2}><b>Social Media</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                            {education.map((part, index) => (
-                                <Part key={index} part={part} />   
-                            ))}
+                        <TableRow>
+                            <TableCell sx={{width: 100}}>Linked-In</TableCell><TableCell>www.linkedin.com/in/royvoorbach</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell sx={{width: 100}}>Github</TableCell><TableCell>https://github.com/ryvb</TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
             <TableContainer/>
         </Box>
+
     )
 }
 
-export default EducationData;
-
-/*
-
-
-*/
+export default SocialMedia;

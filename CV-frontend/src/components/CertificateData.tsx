@@ -7,10 +7,18 @@ import { CvPart } from "../types";
 import Part from './Part';
 
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableRow,
+    Paper,
+    TableHead,
+    tableCellClasses
+  } from '@mui/material'
+
 
 const CertificateData = () => {
     const [certificates, setCertificates] = useState<CvPart[]>([]);
@@ -23,51 +31,24 @@ const CertificateData = () => {
 
     return (
         <Box>
-             <List>
-                <ListItemText 
-                    primary="Certificaten"    
-                />
-                <Divider />
-                {certificates.map((part, index) => (
-                    <ListItem key={index}>
-                        <Part key={index} part={part} />
-                    </ListItem>
-                ))}
-            </List>
-
-        </Box>
-
-    )
-}
-
-export default CertificateData;
-
-/*
-
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableRow,
-    Paper,
-    TableHead,
-  } from '@mui/material'
-
-<CvCard props={certificates}></CvCard>
-
-
             <TableContainer component={Paper}/>
-                <Table>
+                <Table
+                    sx={{
+                        [`& .${tableCellClasses.root}`]: {
+                            borderBottom: 'none',
+                            px: 1.5,
+                            py: 0.35
+                        }
+                    }}>
                     <TableHead>
-                        <TableRow>
+                        <TableRow sx={{ borderBottom: 1, borderColor: 'grey.400'}}>
                             <TableCell align="left" colSpan={2}><b>Certificaten</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                             {certificates.map((part, index) => (
                                 <TableRow key={index}>
-                                    <TableCell>
+                                    <TableCell sx={{width: 110}}>
                                         {part.name}
                                     </TableCell>
                                     <TableCell>
@@ -78,6 +59,49 @@ import {
                     </TableBody>
                 </Table>
             <TableContainer/>
+        </Box>
+
+    )
+}
+
+export default CertificateData;
+
+/*
+
+
+        <Box>
+            <TableContainer component={Paper}/>
+                <Table
+                    sx={{
+                        [`& .${tableCellClasses.root}`]: {
+                            borderBottom: 'none',
+                            px: 1.5,
+                            py: 0.25
+                        }
+                    }}>
+                    <TableHead>
+                        <TableRow sx={{ borderBottom: 1, borderColor: 'grey.400'}}>
+                            <TableCell align="left" colSpan={2}><b>Certificaten</b></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                            {certificates.map((part, index) => (
+                                <TableRow key={index}>
+                                    <TableCell sx={{width: 110}}>
+                                        {part.name}
+                                    </TableCell>
+                                    <TableCell>
+                                        <Part key={index} part={part} />                        
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                    </TableBody>
+                </Table>
+            <TableContainer/>
+        </Box>
+
+
+
 
 
 

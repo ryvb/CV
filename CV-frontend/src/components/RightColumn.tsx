@@ -5,13 +5,17 @@ import Box from '@mui/material/Box';
 import WorkData from './WorkData';
 import EducationData from './EducationData';
 
+import Stack from '@mui/material/Stack';
+
 
 const RightColumn = () => {
 
     return (
         <Box>
-            <EducationData />
-            <WorkData />
+            <Stack spacing={4}>
+                <WorkData />
+                <EducationData />            
+            </Stack>
         </Box>
 
     )
@@ -19,3 +23,10 @@ const RightColumn = () => {
 
 
 export default RightColumn;
+
+
+/*
+
+
+
+*/
