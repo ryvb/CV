@@ -14,7 +14,8 @@ import {
     Paper,
     TableHead,
     tableCellClasses
-  } from '@mui/material'
+} from '@mui/material'
+
 
 const WorkData = () => {
     const [work, setWork] = useState<CvPart[]>([]);
@@ -37,7 +38,7 @@ const WorkData = () => {
                     }}>
                     <TableHead>
                         <TableRow sx={{ borderBottom: 1, borderColor: 'grey.400'}}>
-                            <TableCell align="left" colSpan={2}><b>Werkervaring</b></TableCell>
+                            <TableCell align="left"><b>Werkervaring</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

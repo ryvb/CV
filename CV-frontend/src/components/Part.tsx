@@ -1,6 +1,8 @@
 import React from 'react'
 import { Fragment } from 'react'
 
+import { useAppSelector } from '../hooks'
+
 import { PartProps } from "../types";
 
 import Box from '@mui/material/Box';
@@ -8,9 +10,14 @@ import Box from '@mui/material/Box';
 import {
     TableCell,
     TableRow,
+    List,
+    ListItem
   } from '@mui/material'
 
 const Part = (props: PartProps) => {
+    const visible = useAppSelector(state => state.visibility.value)
+    const showWhenVisible = { display: visible ? '' : 'none' }
+
     const { part } = props;
 
     switch (part.kind) {
@@ -44,7 +51,12 @@ const Part = (props: PartProps) => {
                         <TableCell colSpan={2}>{part.institution} | {part.start_date} - {part.end_date}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell colSpan={2}>{part.description}</TableCell>
+                            <TableCell style={showWhenVisible}>
+                                <List disablePadding={true} sx={{ listStyleType: 'disc', pl: 4}}>
+                                    { part.description.map((bullet, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item'}}>{bullet}</ListItem>
+                                ))}</List>
+                            </TableCell>
                     </TableRow>         
                 </Fragment>
             )

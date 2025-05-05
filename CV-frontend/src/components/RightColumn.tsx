@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 const RightColumn = () => {
 
     return (
-        <Box>
+        <Box sx={{ maxWidth: 500 }}>
             <Stack spacing={4}>
                 <WorkData />
                 <EducationData />            

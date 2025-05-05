@@ -7,7 +7,8 @@ const educationEntries: CvPart[] = [
         "end_date": "Aug 2023",
         "institution": "Vrije Universiteit Amsterdam",
         "city": "Amsterdam",
-        "description": ["x", "y", "z"],
+        "description": ["Empirical Finance", "Python for Finance", "Machine Learning for Finance","Algorithmic Trading", "Data Mining Techniques", "Asset Pricing", 
+            "Credit Complexity & Risk", "Advanced Corporate Finance", "Financial Sector Regulation", "Banking & Fintech", "Researh Project", "Personal Development", "Scriptie: Empirical Asset Pricing via Recurrent Neural Networks"],
         "kind": 'experience'
     },
     {
@@ -16,7 +17,7 @@ const educationEntries: CvPart[] = [
         "end_date": "Aug 2022",
         "institution": "Vrije Universiteit Amsterdam",
         "city": "Amsterdam",
-        "description": ["x", "y", "z"],
+        "description": ["Mathematics", "Statistics", "Investments", "Corporate Finance", "Academic Paper"],
         "kind": 'experience'
     },
     {
@@ -25,7 +26,7 @@ const educationEntries: CvPart[] = [
         "end_date": "Maa 2017",
         "institution": "Hogeschool van Amsterdam",
         "city": "Amsterdam",
-        "description": ["x", "y", "z"],
+        "description": [""],
         "kind": 'experience'
     },
     {
@@ -34,7 +35,7 @@ const educationEntries: CvPart[] = [
         "end_date": "2011",
         "institution": "Farel College",
         "city": "Bunschoten & Amersfoort",
-        "description": ["x", "y", "z"],
+        "description": ["Economie & Maatschappij"],
         "kind": 'experience'
     }
 ];
