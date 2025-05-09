@@ -2,11 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
 interface VisibilityState {
-    value: boolean
+    workDetails: boolean
+    educationDetails: boolean
 }
 
 const initialState: VisibilityState = {
-    value: false
+    workDetails: false,
+    educationDetails: false
 }
 
 
@@ -14,15 +16,18 @@ export const visibleSlice = createSlice({
     name: 'visibility',
     initialState,
     reducers: {
-        changeVisibility: state => {
-            state.value = !state.value
+        changeWorkDetails: state => {
+            state.workDetails = !state.workDetails
+        },
+        changeEducationDetails: state => {
+            state.educationDetails = !state.educationDetails
         }
     }
 })
 
 
-export const { changeVisibility } = visibleSlice.actions
-export const selectVisibility = (state: RootState) => state.visibility.value
+export const { changeWorkDetails, changeEducationDetails } = visibleSlice.actions
+export const selectVisibility = (state: RootState) => state.visibility
 export default visibleSlice.reducer
 
 /*

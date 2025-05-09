@@ -14,18 +14,25 @@ import Stack from '@mui/material/Stack';
 const App = () => {
 
   return (
-    <Container>
-      <Box>
-        <Stack spacing={2}>
-          <Header />
-          <Grid container spacing={10}>
-            <LeftColumn />
-            <RightColumn />
-          </Grid>
-        </Stack>
+    <Box sx={{
+      display: 'flex',
+      position: "fixed",
+      overflow: 'auto',
+      width: '100%',
+      height: "100%"}}>
+      <Container>
+        <Box>
+          <Stack spacing={2}>
+            <Header />
+            <Grid container spacing={10}>
+              <LeftColumn />
+              <RightColumn />
+            </Grid>
+          </Stack>
 
-      </Box>
-    </Container>
+        </Box>
+      </Container>
+    </Box>
   )
 }
 

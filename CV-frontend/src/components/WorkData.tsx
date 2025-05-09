@@ -1,9 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
+import { useAppDispatch } from '../hooks'
+import { changeWorkDetails } from '../reducers/visibleReducer';
+
 import { getAllWork } from '../services/workService';
 import Part from './Part';
 import { CvPart } from "../types";
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 import {
     Table,
@@ -13,12 +19,20 @@ import {
     TableRow,
     Paper,
     TableHead,
-    tableCellClasses
+    tableCellClasses,
 } from '@mui/material'
 
 
 const WorkData = () => {
     const [work, setWork] = useState<CvPart[]>([]);
+
+    const dispatch = useAppDispatch()
+
+    const onClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+
+        await dispatch(changeWorkDetails())
+    }
 
     useEffect(() => {
         getAllWork().then(data => {
@@ -27,7 +41,7 @@ const WorkData = () => {
     }, [])
 
     return (
-        <div>
+        <Box>
             <TableContainer component={Paper}/>
                 <Table
                     sx={{
@@ -38,7 +52,7 @@ const WorkData = () => {
                     }}>
                     <TableHead>
                         <TableRow sx={{ borderBottom: 1, borderColor: 'grey.400'}}>
-                            <TableCell align="left"><b>Werkervaring</b></TableCell>
+                            <TableCell align="left" colSpan={2}><b>Werkervaring</b> <Button sx={{ textTransform: 'none', color: 'black' }} onClick={onClick}>Details</Button></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -48,8 +62,14 @@ const WorkData = () => {
                     </TableBody>
                 </Table>
             <TableContainer/>
-        </div>
+        </Box>
     )
 }
 
 export default WorkData;
+
+/*
+
+sx={{ color: 'black', fontSize: 10 }}
+
+*/

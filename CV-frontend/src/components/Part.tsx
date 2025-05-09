@@ -12,11 +12,16 @@ import {
     TableRow,
     List,
     ListItem
-  } from '@mui/material'
+} from '@mui/material'
+
+
+
 
 const Part = (props: PartProps) => {
-    const visible = useAppSelector(state => state.visibility.value)
-    const showWhenVisible = { display: visible ? '' : 'none' }
+    const visible = useAppSelector(state => state.visibility)
+    
+    const workDetails = { display: visible.workDetails ? '' : 'none' }
+    const educationDetails = { display: visible.educationDetails ? '' : 'none' }
 
     const { part } = props;
 
@@ -42,24 +47,47 @@ const Part = (props: PartProps) => {
                 </Fragment>
             );
         case 'experience':
-            return (
-                <Fragment>
-                    <TableRow>
-                        <TableCell colSpan={2}><b>{part.name}</b></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell colSpan={2}>{part.institution} | {part.start_date} - {part.end_date}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                            <TableCell style={showWhenVisible}>
-                                <List disablePadding={true} sx={{ listStyleType: 'disc', pl: 4}}>
-                                    { part.description.map((bullet, index) => (
-                                    <ListItem key={index} sx={{ display: 'list-item'}}>{bullet}</ListItem>
-                                ))}</List>
-                            </TableCell>
-                    </TableRow>         
-                </Fragment>
-            )
+            if (part.subkind === 'education') {
+                return (
+                    <Fragment>
+                        <TableRow>
+                            <TableCell colSpan={2}><b>{part.name}</b></TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell colSpan={2}>{part.institution} | {part.start_date} - {part.end_date}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                                <TableCell style={educationDetails}>
+                                    <List disablePadding={true} sx={{ listStyleType: 'disc', pl: 4}}>
+                                        { part.description.map((bullet, index) => (
+                                        <ListItem key={index} sx={{ display: 'list-item'}}>{bullet}</ListItem>
+                                    ))}</List>
+                                </TableCell>
+                        </TableRow>         
+                    </Fragment>
+                )
+            } else if (part.subkind === 'work') {
+                return (
+                    <Fragment>
+                        <TableRow>
+                            <TableCell colSpan={2}><b>{part.name}</b></TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell colSpan={2}>{part.institution} | {part.start_date} - {part.end_date}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                                <TableCell style={workDetails}>
+                                    <List disablePadding={true} sx={{ listStyleType: 'disc', pl: 4}}>
+                                        { part.description.map((bullet, index) => (
+                                        <ListItem key={index} sx={{ display: 'list-item'}}>{bullet}</ListItem>
+                                    ))}</List>
+                                </TableCell>
+                        </TableRow>         
+                    </Fragment>
+                )
+            } else {
+                return null;
+            }
         case 'basic':
             return (
                 <Box>
@@ -75,17 +103,22 @@ export default Part;
 
 
 /*
+                <Fragment>
+                    
                     <TableRow>
-                        <TableCell colSpan={2}>{part.name}</TableCell>
+                        <TableCell colSpan={2}><b>{part.name}</b></TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell colSpan={2}>{part.institution}</TableCell>
+                        <TableCell colSpan={2}>{part.institution} | {part.start_date} - {part.end_date}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>{part.start_date} - {part.end_date}</TableCell><TableCell>{part.city}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell colSpan={2}>{part.description}</TableCell>
-                    </TableRow>
+                            <TableCell style={educationDetails}>
+                                <List disablePadding={true} sx={{ listStyleType: 'disc', pl: 4}}>
+                                    { part.description.map((bullet, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item'}}>{bullet}</ListItem>
+                                ))}</List>
+                            </TableCell>
+                    </TableRow>         
+                </Fragment>
 
 */

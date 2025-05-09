@@ -13,7 +13,7 @@ const RightColumn = () => {
     return (
         <Box sx={{ maxWidth: 500 }}>
             <Stack spacing={4}>
-                <WorkData />
+                <WorkData />              
                 <EducationData />            
             </Stack>
         </Box>

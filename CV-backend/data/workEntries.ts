@@ -8,7 +8,8 @@ const workEntries: CvPart[] = [
         "institution": "Total Specific Solutions",
         "city": "Utrecht",
         "description": ["NCCW & Bright Answers", "Controleren maand-, kwartaal-, en jaarafsluiting", "Analyseren varianties Forecast en Actuals"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     },
     {
         "name": "Billing Specialist a.i.",
@@ -18,7 +19,8 @@ const workEntries: CvPart[] = [
         "city": "Amsterdam",
         "description": ["Verantwoordelijk voor het declaratieproces, aanmaak van nieuwe dossiers, en de financiele administratie van inkomende gelden op de notariele derdengeldenrekening", 
             "Uitleggen en verduidelijken van het billing proces voor de notarissen en advocaten"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     },
     {
         "name": "Hypotheekacceptant",
@@ -27,7 +29,8 @@ const workEntries: CvPart[] = [
         "institution": "Rabobank",
         "city": "Utrecht",
         "description": ["Analyseren van financiele en andere documenten om aanvraagen voor hypothecaire leningen te beoordelen", "Vereist voortdurend balanceren tussen klanttevredenheid, risico, en het afsluiten van nieuwe hypotheken"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     },
     {
         "name": "Hypotheekacceptant",
@@ -36,7 +39,8 @@ const workEntries: CvPart[] = [
         "institution": "ING Bank",
         "city": "Amsterdam",
         "description": ["Betrokken bij het gehele hypotheektraject vanaf het klantonderzoek tot en met het afsluiten van de hypotheek", "Inwerken van nieuwe collega's en de nieuwe collega's begeleiden om over te stappen naar een volwaardig team"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     },
     {
         "name": "Medewerker hypotheken beheer",
@@ -45,7 +49,8 @@ const workEntries: CvPart[] = [
         "institution": "ING Bank",
         "city": "Amsterdam",
         "description": ["Administratieve werkzaamheden met betrekking tot complexe financiele hypotheek producten", "Beantwoorden van vragen van klanten", "Oplossen van complexe problemen en klachten van klanten"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     },
     {
         "name": "Afstudeerstage",
@@ -54,7 +59,8 @@ const workEntries: CvPart[] = [
         "institution": "Rabobank Randmeren",
         "city": "Nijkerk",
         "description": ["Oorzaken van het dalende marktaandeel van de Rabobank in de hypotheekmarkt in Bunschoten onderzocht", "Concrete aanbevelingen gedaan om marktaandeel terug te winnen"],
-        "kind": 'experience'
+        "kind": 'experience',
+        "subkind": 'work'
     }
 ];
 

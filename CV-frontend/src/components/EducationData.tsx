@@ -1,14 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../hooks'
-import { changeVisibility } from '../reducers/visibleReducer'
-
+import { useAppDispatch } from '../hooks'
+import { changeEducationDetails } from '../reducers/visibleReducer'
 
 import { getAllEducation } from '../services/educationService';
 import Part from './Part';
 import { CvPart } from "../types";
-
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -25,20 +23,15 @@ import {
   } from '@mui/material'
 
 
-
 const EducationData = () => {
     const [education, setEducation] = useState<CvPart[]>([]);
 
-
-
     const dispatch = useAppDispatch()
-
-
 
     const onClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
 
-        await dispatch(changeVisibility())
+        await dispatch(changeEducationDetails())
     }
 
     useEffect(() => {
@@ -59,12 +52,12 @@ const EducationData = () => {
                 }}>
                     <TableHead>
                         <TableRow sx={{ borderBottom: 1, borderColor: 'grey.500'}}>
-                            <TableCell align="left" colSpan={2}><b>Opleidingen</b> <Button onClick={onClick}>details</Button></TableCell>
+                            <TableCell align="left" colSpan={2}><b>Opleidingen</b> <Button sx={{ textTransform: 'none', color: 'black' }} onClick={onClick}>Details</Button></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                             {education.map((part, index) => (
-                                <Part key={index} part={part}/>   
+                                <Part key={index} part={part}/>
                             ))}
                     </TableBody>
                 </Table>

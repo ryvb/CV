@@ -24,6 +24,7 @@ interface CvPartExperience extends CvPartBase {
     city: string;
     description: string[];
     kind: 'experience';
+    subkind: string;
 }
 
 export type CvPart = 
