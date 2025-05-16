@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { CvPart} from '../types';
 
-const baseUrl = '/api/work';
-//const baseUrl = 'http://localhost:3000/api/work';
+//const baseUrl = '/api/work';
+const baseUrl = 'http://localhost:3000/api/work';
 
 export const getAllWork = () => {
     const request = axios.get<CvPart[]>(baseUrl);
