@@ -8,6 +8,9 @@ on:
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: ./CV-backend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
