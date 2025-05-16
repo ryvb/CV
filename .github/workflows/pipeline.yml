@@ -7,7 +7,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: ubuntu-24.04.02
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: ./CV-backend
