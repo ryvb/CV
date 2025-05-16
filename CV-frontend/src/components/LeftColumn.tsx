@@ -1,5 +1,3 @@
-import React from 'react';
-
 import PersonalData from "./PersonalData";
 import CertificateData from './CertificateData';
 import SkillData from './SkillData';

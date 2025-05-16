@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
+import PORT from "./utils/config";
+
 import certificateRouter from './routes/certificates';
 import educationRouter from './routes/education';
 import hobbiesRouter from './routes/hobbies';
@@ -22,9 +24,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-
-
-const PORT = 3000;
+app.use(express.static('dist'));
 
 app.get('/ping', (_req, res) => {
     console.log('Someone pinged here');
