@@ -7,7 +7,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04.02 LTS
     defaults:
       run:
         working-directory: ./CV-backend
@@ -19,4 +19,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Check style
-        run: npm run eslint
+        run: npm run lint
