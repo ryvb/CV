@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:5173');
+    await page.goto('');
 })
 
 test.describe('CV', () => {
@@ -9,9 +9,7 @@ test.describe('CV', () => {
         await expect(page.getByRole('heading', { name: 'Roy Voorbach' })).toBeVisible();
     })
     
-    test('details can be opened', async ( {page }) => {
-        await page.goto('http://localhost:5173')
-    
+    test('details can be opened', async ( {page }) => {    
         await page.getByRole('row', { name: 'Werkervaring Details' }).getByRole('button', { name: 'Details '}).click();
         await expect(page.getByText('NCCW & Bright Answers')).toBeVisible()
     })

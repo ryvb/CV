@@ -20,3 +20,6 @@ jobs:
         run: npm install
       - name: Check style
         run: npm run lint
+      - name: Run tests
+        working-directory: ./e2etests
+        run: npm run test
