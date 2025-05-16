@@ -22,4 +22,6 @@ jobs:
         run: npm run lint
       - name: Run tests
         working-directory: ./e2etests
-        run: npm run test
+        run: |
+          npm install  
+          npm run test
