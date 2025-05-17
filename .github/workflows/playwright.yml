@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-24.04
     defaults:
         run:
-          working-directory: ./e2etests
+          working-directory: ./CV-backend
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -22,7 +22,7 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
+    - name: Run test
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
